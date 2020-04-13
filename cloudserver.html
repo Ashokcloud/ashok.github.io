@@ -1,0 +1,125 @@
+<!DOCTYPE HTML>
+<!--
+	Massively by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Project 3</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<a href="index.html" class="logo">Passionately Curious!</a>
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li><a href="index.html">Home</a></li>
+							<li><a href="portfolio.html">portfolio</a></li>
+							<li><a href="DNSserver.html">Project 1</a></li>
+							<li><a href="VPNserver.html">Project 2</a></li>
+							<li class="active"><a href="cloudserver.html">Project 3</a></li>
+							<li><a href="webserver.html">Project 4</a></li>
+						</ul>
+						<ul class="icons">
+							<li><a href="https://twitter.com/Ashok03005" target="null" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+							
+							<li><a href="https://www.linkedin.com/in/ashok-kumar-bharathidasan-64985156/" target="null" class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>
+							<li><a href="https://github.com/Ashok-CLD/ashok.github.io" target="null" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+							<li><a href="https://www.cloudmssa.com" target="null" class="content"><span class="label">Blog</span></a></li>			
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Post -->
+							<section class="post">
+								<header class="major">
+									
+									<h1>Private Cloud Storage Server</h1>
+									<p>The idea of building a cloud storage server was sparked after seeing warnings that my free tier file storage space is full! I used my old external hard drive and flash drive to serve as a file storage server.</p>
+								</header>
+								<p>This was a very interesting project for me because I was able to use my 10yr old 500GB external hard drive that I hardly used and thought it was unusable because of the broken USB port. If I was not exposed to IT, I would have thrown the hard drive away thinking it as one of the electronic wastes. But, IT taught me that there is something one can make out of the unusable device. Out of curiosity, I opened the hard drive and found that the USB interface can be changed. So, I bought a USB to SATA adapter and was able to seamlessly access my hard drive. Also, I took my old 64GB flash drive and decided to use both of them to provide the file storage I needed.</p>
+								<p>I used my existing Raspberry Pi, which was already running a VPN server. I added the cloud storage server role to the Raspberry Pi. I decided to use the Nextcloud setup which required the installation of Apache, PHP, and Nextcloud packages. Nextcloud is a self-hosted file-sharing software that is available for free. After installation and the configuration of proper file permissions and user credentials, I finished the setup by logging in to the Nextcloud’s web interface. To make the setup more usable and secure, I moved the data directory out of the web-accessible directory. If the data directory is kept sitting inside the web directory, then all the files will be just stored only in the Raspberry Pi’s memory (SD card) resulting in increased load and eventually running out of memory. So, I moved the data directory to my external drives that I have mounted earlier. This way, all the data is stored in my external drives which have bigger storage space then the Raspberry Pi’s SD card. Then, in the Nextcloud web interface, I configured the settings to enable the external storage app and added the external storage locations to the server. The picture presented below shows the two storage drives I have implemented in my cloud server to provide storage space. The reason I chose two hard drives is to avoid the single point of failure and to provide a little bit of redundancy, where the secondary hard drive can act as a backup.</p>
+								<div class="image main"><img src="images/cloud1.jpg" alt="" /></div>
+								<p>After successful installation, I tweaked the setup a bit to leverage the features Nextcloud offers. I increased the default max upload size of 2MB to the upload size of my choice. Then I changed the default HTTP to HTTPS and then created a self-signed certificate using OpenSSL. The self-signed certificates can provide encryption and are great for a local network when one does not serve to the external web requests. Self-signed certificates will throw ‘certificate warning’ in the web browser because it is not signed by a third-party certificate authority (CA). But for my setup, it was ideal and enough. To access my cloud server from outside my network, I used a dynamic DNS provider to register a hostname and direct any requests to the hostname to my router’s public IP address. Then, used port forwarding in my router to direct that traffic to my cloud server. Between the two external hard drives in my cloud server, I chose to do manual syncing between the drives. Though automatic synching makes it easier to manage and provide automatic replication between the drives, replication is NOT a backup. The issue with automatic synching is that if one file is corrupted or deleted mistakenly, it replicates that condition to the other drive as well resulting in deleting the files since replication strives to keep the files the same on both drives. Nextcloud web interface makes it easier to drag and drop a file or folder at a whim to any attached storage drive. The pictures given below show the ease of adding files or folders to the external storage drives.</p>
+								<div class="image main"><img src="images/cloud2.png" alt="" /></div>
+								<div class="image main"><img src="images/cloud3.png" alt="" /></div>
+								<p>The network architecture of my private cloud server is shown here:</p>
+								<div class="image main"><img src="images/Cloud Server.jpg" alt="" /></div>
+								<p>The private cloud server has so much potential that it can be leveraged to any home or smaller network. Nextcloud is available as a web app that can be downloaded in computers, tablets or phones. So, any file can be stored in a local storage server by a mere swipe of the screen. To improve redundancy, storage, and performance, few external hard drives with a storage capacity of more than 1TB can be added and RAID setup can be configured. I want to explore the possibilities and build on this project in the future!</p>
+								
+							</section>
+							<footer>
+								<div class="pagination">
+									<!--<a href="#" class="previous">Prev</a>-->
+									<a href="index.html" class="page">1</a>
+									<a href="portfolio.html" class="page">2</a>
+									<a href="DNSserver.html" class="page">3</a>
+									<a href="VPNserver.html" class="page">4</a>
+									<a href="#" class="page active">5</a>
+									<a href="webserver.html" class="page">6</a>
+								</div>
+							</footer>
+					</div>
+<!-- Footer -->
+<footer id="footer">
+						
+	<section class="split contact">
+		<section class="alt">
+			<h3>Address</h3>
+			<p>Hawaii</p>
+			
+		</section>
+		<section>
+			<h3>Phone</h3>
+			<p><a href="#">(606) 694-4766</a></p>
+		</section>
+		<section>
+			<h3>Email</h3>
+			<p><a href="#" target="null">ashokkumar.bharathidasan@outlook.com</a></p>
+		
+		</section>
+		<section>
+			<h3>Social</h3>
+			<ul class="icons alt">
+				<li><a href="https://twitter.com/Ashok03005" target="null" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+		
+		<li><a href="https://www.linkedin.com/in/ashok-kumar-bharathidasan-64985156/" target="null" class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>
+		<li><a href="https://github.com/Ashok-CLD/ashok.github.io" target="null" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+		<li><a href="https://www.cloudmssa.com" target="null" class="content"><span class="label">Blog</span></a></li>	
+			</ul>
+		</section>
+	</section>
+</footer>
+
+<!-- Copyright -->
+<div id="copyright">
+	<ul><li>&copy; Ashok's Portfolio</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+</div>
+
+</div>
+
+<!-- Scripts -->
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/jquery.scrollex.min.js"></script>
+<script src="assets/js/jquery.scrolly.min.js"></script>
+<script src="assets/js/browser.min.js"></script>
+<script src="assets/js/breakpoints.min.js"></script>
+<script src="assets/js/util.js"></script>
+<script src="assets/js/main.js"></script>
+
+</body>
+</html>		

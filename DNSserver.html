@@ -1,0 +1,130 @@
+<!DOCTYPE HTML>
+<!--
+	Massively by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Project 1</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<a href="index.html" class="logo">Passionately Curious!</a>
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li><a href="index.html">Home</a></li>
+							<li><a href="portfolio.html">portfolio</a></li>
+							<li class="active"><a href="DNSserver.html">Project 1</a></li>
+							<li><a href="VPNserver.html">Project 2</a></li>
+							<li><a href="cloudserver.html">Project 3</a></li>
+							<li><a href="webserver.html">Project 4</a></li>
+						</ul>
+						<ul class="icons">
+							<li><a href="https://twitter.com/Ashok03005" target="null" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+							
+							<li><a href="https://www.linkedin.com/in/ashok-kumar-bharathidasan-64985156/" target="null" class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>
+							<li><a href="https://github.com/Ashok-CLD/ashok.github.io" target="null" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+							<li><a href="https://www.cloudmssa.com" target="null" class="content"><span class="label">Blog</span></a></li>		
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Post -->
+							<section class="post">
+								<header class="major">
+									
+									<h1>DNS Sinkhole, DNS Forwarder, & DNS Resolver</h1>
+	
+									<p>I was inspired to do this as my first IT project mainly because of the obvious benefits it provides for an entire network. The prospect of not seeing any advertisements prompted me to try out this project!</p>
+								</header>
+								<p>I bought all the components of Raspberry Pi, assembled and installed Raspian, which is a Linux (Debian) based operating system. Raspian is a free operating system and considered as the official operating system of the Raspberry Pi. Then, I installed Pi-hole, which is a Linux based network-level adblocking application that can act as a DNS sinkhole. In the Raspberry Pi, I enabled SSH and RDP that helped me configure the entire setup from my laptopOnce I successfully installed and tested the operation of Pi-hole, I changed my router configuration and put the local IP address of my Raspberry Pi as the primary DNS server. This made sure all the DNS traffic from my network goes through the Pi-hole and gets filtered. I also leveraged the in-build DHCP server feature that Pi-hole offers and used it as my DHCP server as well. Now, my Pi-hole both acts as a DNS and DHCP server, which you can see in the picture below. </p>
+								<div class="image main"><img src="images/cmd.jpg" alt="" /></div> 
+								<p>Like every other home network, I constantly saw ads in one form or the other in every browser and the browser adblockers were not that effective. After deploying Pi-hole, I hardly see any ads. Pi-hole has stripped down all the ads from the most common ads prone applications such as YouTube videos, online/mobile games, apps, and websites. My home network DNS architecture before the implementation of Pi-hole is shown below.</p>
+								<div class="image main"><img src="images/pic07.jpg" alt="" /></div>
+								<p>Pi-hole has been running great and serving the entire network as I expected. Apart from acting as DNS sinkhole, Pi-hole also acts as a DNS forwarder because it does not resolve the DNS queries but simply forward them to the designated upstream DNS servers. The upstream DNS servers resolve the queries by going through the DNS hierarchy and get the answer from the authoritative DNS server to the client. Though this set up does not necessarily affect the DNS functions, it leaves room for the upstream DNS servers to monitor your DNS traffic, if they want. Since all the DNS traffic goes through upstream servers, every DNS activity is logged in their servers. So, I wanted to take it one step further by implementing a DNS resolver in my home network. I installed Unbound, which is an open-source package provides DNS resolver capability and supports encryption and caching of DNS queries. The new DNS architecture of my home network is shown below.</p>
+								
+								<div class="image main"><img src="images/pic08.jpg" alt="" /></div>
+								<p>To me, the idea of having DNS sinkhole, DNS forwarder and DNS resolver that along with caching and encryption of DNS queries in a single credit-sized card machine sounded unrealistic at first. But, when I saw it working extremely well and had the first-hand experience of building it, it is not too hard to believe. This was the moment that I realized how powerful the technologies are! One might think if a server has all these roles installed and handles 8 clients (as in my case), it would need a lot of memory. Surprisingly, the whole set up is very lightweight, robust and versatile. My Raspberry Pi has only 32GB memory, and all these setups take only 5-6% of my memory at any given time (see the picture below).</p>
+								<div class="image main"><img src="images/pic09.jpg" alt="" /></div>
+								<p>Pi-hole offers other cool features such as a web interface, an in-built DHCP server, and customizable domain listings. The number of domains one can put in the blocklist depends on the level of blocking they need for their network. For my network, I have currently little over 870,000 domains on my blocklist. I enabled auto-update and set my blocklists to get updated every 24 hours. The DNS requests of my network are answered by the local DNS resolver that I have set up. The queries answered section (see the picture below) shows the percentage of DNS queries blocked and answered by the DNS resolver and from the caching.</p>
+								<div class="image main"><img src="images/pic10.jpg" alt="" /></div>
+								<p>This project was great fun! I am happy to see it working extremely well. Since I use this device every day, this project is one of my favorites!</p>
+							</section>
+
+							<footer>
+								<div class="pagination">
+									<!--<a href="#" class="previous">Prev</a>-->
+									<a href="index.html" class="page">1</a>
+									<a href="portfolio.html" class="page">2</a>
+									<a href="#" class="page active">3</a>
+									<a href="VPNserver.html" class="page">4</a>
+									<a href="cloudserver.html" class="page">5</a>
+									<a href="webserver.html" class="page">6</a>
+								</div>
+							</footer>
+					</div>
+
+			<!-- Footer -->
+			<footer id="footer">
+						
+				<section class="split contact">
+					<section class="alt">
+						<h3>Address</h3>
+						<p>Hawaii</p>
+						
+					</section>
+					<section>
+						<h3>Phone</h3>
+						<p><a href="#">(606) 694-4766</a></p>
+					</section>
+					<section>
+						<h3>Email</h3>
+						<p><a href="#" target="null">ashokkumar.bharathidasan@outlook.com</a></p>
+					
+					</section>
+					<section>
+						<h3>Social</h3>
+						<ul class="icons alt">
+							<li><a href="https://twitter.com/Ashok03005" target="null" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+					
+					<li><a href="https://www.linkedin.com/in/ashok-kumar-bharathidasan-64985156/" target="null" class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>
+					<li><a href="https://github.com/Ashok-CLD/ashok.github.io" target="null" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+					<li><a href="https://www.cloudmssa.com" target="null" class="content"><span class="label">Blog</span></a></li>	
+						</ul>
+					</section>
+				</section>
+			</footer>
+
+		<!-- Copyright -->
+			<div id="copyright">
+				<ul><li>&copy; Ashok's Portfolio</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+			</div>
+
+	</div>
+
+<!-- Scripts -->
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/jquery.scrollex.min.js"></script>
+	<script src="assets/js/jquery.scrolly.min.js"></script>
+	<script src="assets/js/browser.min.js"></script>
+	<script src="assets/js/breakpoints.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<script src="assets/js/main.js"></script>
+
+</body>
+</html>		

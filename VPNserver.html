@@ -1,0 +1,123 @@
+<!DOCTYPE HTML>
+<!--
+	Massively by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Project 2</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<a href="index.html" class="logo">Passionately Curious!</a>
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li><a href="index.html">Home</a></li>
+							<li><a href="portfolio.html">portfolio</a></li>
+							<li><a href="DNSserver.html">Project 1</a></li>
+							<li class="active"><a href="VPNserver.html">Project 2</a></li>
+							<li><a href="cloudserver.html">Project 3</a></li>
+							<li><a href="webserver.html">Project 4</a></li>
+						</ul>
+						<ul class="icons">
+							<li><a href="https://twitter.com/Ashok03005" target="null" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+							
+							<li><a href="https://www.linkedin.com/in/ashok-kumar-bharathidasan-64985156/" target="null" class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>
+							<li><a href="https://github.com/Ashok-CLD/ashok.github.io" target="null" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+							<li><a href="https://www.cloudmssa.com" target="null" class="content"><span class="label">Blog</span></a></li>		
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Post -->
+							<section class="post">
+								<header class="major">
+									
+								<h1>VPN Server</h1>
+									<p>Completing my first project gave me the confidence to do this project. I liked the idea of sitting anywhere in the world with my laptop and still able to connect with my network to securely access the internet. Hence, the VPN!</p>
+								</header>
+								
+								<p>Like my first project, I have built a Raspberry Pi with a Raspian OS. Then I installed PiVPN, which is a VPN package designed for Raspberry Pi. The installation was very simple and straightforward. After installation, I configured a port number and a VPN protocol of my choice for the server. I chose the OpenVPN protocol that uses SSL VPN as its tunneling protocol. OpenVPN is compatible across operating systems, processor architectures, firewall and NAT operations. The default port number of OpenVPN is 1194 but I chose a random port number and opened that particular port in my router to enable VPN access. In the middle of configuring the VPN server, I chose a dynamic DNS (DDNS) provider and registered a hostname (eg: welcome.ddns.org) and configured it to my router’s public IP address. Then added the registered hostname in the VPN configuration. Set up a static local IP address for the VPN server, so that my IP address does get changed dynamically by the DHCP server. In the router, then I did port forwarding that automatically directs the VPN traffic coming in the chosen port number to the IP address of my VPN. The network architecture of my VPN server setup is shown below.</p>
+								<div class="image main"><img src="images/VPNserver.jpg" alt="" /></div>
+								<p>VPN provides both encapsulation and encryption of the data packets before transmitting them from a VPN client to a VPN server.  In simpler terms, encapsulation means wrapping a data packet with another layer, so the contents are not visible. Encryption is changing the data from one form to another using algorithm. Only the person who holds the decryption key can unlock and decipher the data. An easy example to show the difference would be, writing a letter in a piece of paper and putting it in an envelope is “encapsulation”. Writing a letter in a coded language so that no can read is “encryption”; the letter can only be read by someone whom you shared the code is “decryption”. By default, OpenVPN uses SSL VPN to encapsulate the data. I chose ECC (Elliptic Curve Cryptography) algorithm to encrypt data because it is light-weight, uses smaller keys, faster key generation and offers security equivalent or better than some well-known algorithms such as RSA and DSA. ECC is asymmetric cryptography meaning that uses two keys (key pair), one for encryption and one for decryption. To access the VPN server, I installed the VPN client software on my laptop and other home computers. The software helps to establish a connection between the client and the VPN server. After that, I copied the encryption key from the VPN server and attached it with the VPN client. This enabled that all traffic from my laptop is encrypted and only the VPN server can decrypt it. Once the VPN client connected with the VPN server, it gets a local IP address assigned by the VPN server (see the picture below). Now, I can access the internet from anywhere as if I was sitting in my home.</p>
+								<div class="image main"><img src="images/localip.png" alt="" /></div>
+								<div class="image main"><img src="images/localip1.png" alt="" /></div>
+								<div class="image main"><img src="images/localip2.png" alt="" /></div>
+								<p>The ease of use of this application is exceptional because all it takes to connect to my VPN server is just two clicks. This project was relatively easier than the other projects I did!</p>
+							</section>
+							<footer>
+								<div class="pagination">
+									<!--<a href="#" class="previous">Prev</a>-->
+									<a href="index.html" class="page">1</a>
+									<a href="portfolio.html" class="page">2</a>
+									<a href="DNSserver.html" class="page">3</a>
+									<a href="#" class="page active">4</a>
+									<a href="cloudserver.html" class="page">5</a>
+									<a href="webserver.html" class="page">6</a>
+								</div>
+							</footer>
+					</div>
+<!-- Footer -->
+<footer id="footer">
+						
+	<section class="split contact">
+		<section class="alt">
+			<h3>Address</h3>
+			<p>Hawaii</p>
+			
+		</section>
+		<section>
+			<h3>Phone</h3>
+			<p><a href="#">(606) 694-4766</a></p>
+		</section>
+		<section>
+			<h3>Email</h3>
+			<p><a href="#" target="null">ashokkumar.bharathidasan@outlook.com</a></p>
+		
+		</section>
+		<section>
+			<h3>Social</h3>
+			<ul class="icons alt">
+				<li><a href="https://twitter.com/Ashok03005" target="null" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+		
+		<li><a href="https://www.linkedin.com/in/ashok-kumar-bharathidasan-64985156/" target="null" class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>
+		<li><a href="https://github.com/Ashok-CLD/ashok.github.io" target="null" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+		<li><a href="https://www.cloudmssa.com" target="null" class="content"><span class="label">Blog</span></a></li>	
+			</ul>
+		</section>
+	</section>
+</footer>
+
+<!-- Copyright -->
+<div id="copyright">
+	<ul><li>&copy; Ashok's Portfolio</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+</div>
+
+</div>
+
+<!-- Scripts -->
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/jquery.scrollex.min.js"></script>
+<script src="assets/js/jquery.scrolly.min.js"></script>
+<script src="assets/js/browser.min.js"></script>
+<script src="assets/js/breakpoints.min.js"></script>
+<script src="assets/js/util.js"></script>
+<script src="assets/js/main.js"></script>
+
+</body>
+</html>		
